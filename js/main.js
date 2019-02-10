@@ -1,15 +1,15 @@
 /* JS for WATS 3020 Roster Project */
 
 class Person{
-  constructor(name, email, username){
+  constructor(name, email){
     this.name = name;
     this.email = email;
-    this.username = email.split('@')[0];
+    this.username = email.split('@')[0]; 
   }
 }
 
 class Student extends Person{
-  constructor(name, email, username, attendance){
+  constructor(name, email, username){
     super(name, email, username);
     this.attendance = [];
   }
@@ -18,12 +18,12 @@ class Student extends Person{
     let sum = 0;
     let percentage = 0;
     for (let value of this.attendance){
-      sum = sum + value;
+      sum = sum + value; 
     }
     if (this.attendance.length === 0){
       return '0%';
     } else{
-      percentage = (sum / this.attendance.length * 100).toFixed(2);
+      percentage = (sum / this.attendance.length * 100).toFixed(2); // calculate percentage to 2 decimal points
       return `${percentage}%`;
     }
   }
@@ -48,7 +48,7 @@ class Course {
     addStudent(){
       let newStudentName = prompt('Please enter the student\'s name.','John Doe');
       let newStudentEmail =  prompt('Please enter the student\'s email address.','john.doe@email.com');
-      this.students.push( new Student(newStudentName, newStudentEmail));
+      this.students.push(new Student(newStudentName, newStudentEmail)); // create new Student object and push to students array
       updateRoster(this);
     }
 
@@ -56,7 +56,7 @@ class Course {
       let newTeacherName = prompt('Please enter the teacher\'s name.','Jane Doe');
       let newTeacherEmail = prompt('Please enter the teacher\'s email address.', 'jane.doe@email.com')
       let newTeacherHonorific = prompt('Please enter the teacher\'s honorific.', 'Dr.')
-      this.teacher = new Teacher(newTeacherName, newTeacherEmail, newTeacherHonorific);
+      this.teacher = new Teacher(newTeacherName, newTeacherEmail, newTeacherHonorific); // create new Teacher object
       updateRoster(this);
     }
 
@@ -90,7 +90,7 @@ let courseCode = prompt('Please enter the number/code of the course.','WATS3020'
 let courseTitle = prompt('Please enter the name of the course.','Introduction to Javascript');
 let courseDescription = prompt('Please enter the descriptive summary of the course.')
 
-myCourse = new Course(courseCode, courseTitle, courseDescription);
+myCourse = new Course(courseCode, courseTitle, courseDescription); // create new Course object called myCourse
 
 
 
